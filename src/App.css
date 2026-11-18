@@ -230,3 +230,9 @@ body {
   height: auto;
   margin: 3rem auto 0;
 }
+
+.form-error {
+  color: var(--raspberry);
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
