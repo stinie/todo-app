@@ -1,0 +1,232 @@
+
+/* ========================================
+   ToDo App — Soft Light Theme
+   ======================================== */
+
+:root {
+  --background: #fefdf9;
+  --surface: #ffffff;
+  --text: #343b40;
+  --text-muted: #68777a;
+  --teal: #557478;
+  --pink: #f3c5d0;
+  --pink-hover: #eeb0c0;
+  --raspberry: #a04756;
+  --border: #d7dedd;
+}
+
+/* Base */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  max-width: 400px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* New task form */
+
+.new-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.new-item-form input,
+.new-item-form textarea {
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.new-item-form input:focus,
+.new-item-form textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(85, 116, 120, 0.15);
+}
+
+/* Buttons */
+
+.btn {
+  background: var(--pink);
+  color: var(--text);
+  border: 1px solid var(--pink);
+  border-radius: 0.5rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  background: var(--pink-hover);
+  border-color: var(--pink-hover);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Delete button */
+
+.btn.btn-danger {
+  background: transparent;
+  color: var(--raspberry);
+  border: 1px solid #dfb8c0;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.btn.btn-danger:hover {
+  background: #fbecef;
+  border-color: var(--raspberry);
+}
+
+.btn.btn-danger:focus-visible {
+  outline: 2px solid var(--raspberry);
+  outline-offset: 3px;
+}
+
+/* Headings */
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Todo list */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ebe8e2;
+}
+
+.list li label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* Custom checkboxes */
+
+.list li input[type="checkbox"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.list li label::before {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--surface);
+  border: 1.5px solid var(--teal);
+  border-radius: 0.3rem;
+  transition: background-color 0.2s;
+}
+
+.list li label:hover::before {
+  background: #eaf0ef;
+}
+
+.list li:has(input:checked) label::before {
+  content: "✔";
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.list li:has(input:checked) label {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.list li:has(input:focus-visible) label::before {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Small screens */
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+
+  .list li {
+    gap: 0.5rem;
+  }
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-content small {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.turtle-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 3rem auto 0;
+}
