@@ -25,7 +25,7 @@ function TodoItem({
         </div>
       </label>
       <button onClick={() => deleteTodo(id)} className="btn btn-danger">
-        Delete
+        Done
       </button>
     </li>
   );
